@@ -25,7 +25,7 @@ public class EmailDAO {
         String email = prop.getProperty("EMAIL.login");
         String password = prop.getProperty("EMAIL.password");
         String containerEmail = "Ola " + cliente.getNome() + "! seu cadastro foi finalizado. \n ";
-        containerEmail += "Para acessar o TDC online acesse o link: https://github.com/mikeDRei/miniFrameworkJava \n";
+        containerEmail += "Para acessar o TDC online acesse o link: http://localhost/justi/public/validar \n";
         containerEmail += "Utilize a senha: " + cliente.getSenha() + " para o primeiro acesso";
         SimpleEmail simpleEmail = new SimpleEmail();
         simpleEmail.setHostName("smtp.gmail.com");

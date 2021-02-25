@@ -8,10 +8,10 @@
     <class>com.michael.PIDS.model.Garantias</class>
     <class>com.michael.PIDS.model.Maquinarios</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tdc?zeroDateTimeBehavior=convertToNull"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://31.170.160.52:3306/u699579639_tdc?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="u699579639_root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="javax.persistence.jdbc.password" value="Tdc_2021"/>
       <property name="eclipselink.logging.level.sql" value="FINE"/>
       <property name="eclipselink.logging.parameters" value="true"/>
     </properties>
