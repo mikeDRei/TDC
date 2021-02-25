@@ -934,9 +934,12 @@ public class CadastroCliente extends javax.swing.JFrame {
             
         } else {
             btSalvar.setEnabled(true);
-            clientes = daocliente.saveCliente(clientes);
+            if(clientes.getId() == null){
             EmailDAO send = new EmailDAO();
             send.sendEmail(clientes);
+            }
+            clientes = daocliente.saveCliente(clientes);
+            
             JOptionPane.showMessageDialog(null, "Salvo com sucesso",
                     "Sucesso", JOptionPane.WIDTH);
             
