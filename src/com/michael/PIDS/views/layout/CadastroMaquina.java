@@ -739,7 +739,7 @@ public class CadastroMaquina extends javax.swing.JFrame {
                 if (maquinas.getId() == null) {
 
                     maquinas = daomaquinas.saveMaquina(maquinas);
-                    this.SalvarGarantia(funcionario, maquinas, Integer.parseInt(idCliente));
+                    this.SalvarGarantia(funcionario, maquinas, Integer.parseInt(idCliente),descricao);
                 } else {
                     maquinas = daomaquinas.saveMaquina(maquinas);
                 }
@@ -786,7 +786,7 @@ public class CadastroMaquina extends javax.swing.JFrame {
 
     }
 
-    public void SalvarGarantia(Funcionarios funcionarios, Maquinarios maquinas, int idCliente) {
+    public void SalvarGarantia(Funcionarios funcionarios, Maquinarios maquinas, int idCliente,String descricao) {
 
         Date dataInicial = new Date();
         Date dataFinal = daogarantias.somaDias(dataInicial, 365);
@@ -800,6 +800,7 @@ public class CadastroMaquina extends javax.swing.JFrame {
         garantias.setNotaFiscal(Integer.parseInt(jtNotaFiscal.getText()));
         garantias.setStatus("Válida");
         garantias.setSerialMaquina(serie);
+        garantias.setDescricaoMaquina(descricao);
         garantias = daogarantias.saveGarantia(garantias);
 
         if (garantias.getId() != null) {

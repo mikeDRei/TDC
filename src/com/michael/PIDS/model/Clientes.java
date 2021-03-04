@@ -48,11 +48,12 @@ public class Clientes implements Serializable {
     private Integer mes;
     private Integer ano;
     private Integer ativoinativo;
+    private String remember_token;
     
     public Clientes(Integer id, String nome, String email, String cpfoucnpj,
             Integer tipo, Date datacadastro, Funcionarios funcionario,String 
                     Telefone,String TelFixo,Date datanascimento, Integer dia
-            ,Integer mes, Integer ano,Integer ativoinativo, String senha) {
+            ,Integer mes, Integer ano,Integer ativoinativo, String senha, String remember_token) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -67,6 +68,7 @@ public class Clientes implements Serializable {
         this.ano = ano;
         this.ativoinativo = ativoinativo;
         this.senha = senha;
+        this.remember_token = remember_token;
         
     }
 
@@ -193,6 +195,14 @@ public class Clientes implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getRemember_token() {
+        return remember_token;
+    }
+
+    public void setRemember_token(String remember_token) {
+        this.remember_token = remember_token;
     }
 
  

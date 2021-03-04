@@ -31,11 +31,11 @@
           <Font name="Times New Roman" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="LOGIN:"/>
+        <Property name="text" type="java.lang.String" value="LOGIN"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="120" width="70" height="30"/>
+          <AbsoluteConstraints x="140" y="80" width="110" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -45,11 +45,11 @@
           <Font name="Times New Roman" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="SENHA:"/>
+        <Property name="text" type="java.lang.String" value="SENHA"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="200" width="70" height="30"/>
+          <AbsoluteConstraints x="140" y="160" width="100" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

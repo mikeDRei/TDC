@@ -40,7 +40,7 @@ public class Maquinarios implements Serializable {
     private Integer ClienteId;
     @OneToOne
     private Funcionarios funcionario;
-
+    
     public Maquinarios() {
 
     }

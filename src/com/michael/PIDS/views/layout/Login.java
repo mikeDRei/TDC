@@ -39,13 +39,13 @@ public class Login extends javax.swing.JFrame {
 
         lblLogin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogin.setText("LOGIN:");
-        getContentPane().add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, 30));
+        lblLogin.setText("LOGIN");
+        getContentPane().add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 110, 30));
 
         lblSenha.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblSenha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSenha.setText("SENHA:");
-        getContentPane().add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 70, 30));
+        lblSenha.setText("SENHA");
+        getContentPane().add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 100, 30));
 
         jlWelcome.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jlWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

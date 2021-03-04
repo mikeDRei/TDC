@@ -40,6 +40,7 @@ public class Garantias implements Serializable {
     private Integer notaFiscal;
     private String status;
     private String SerialMaquina;
+    private String descricaoMaquina;
 
     public Garantias(Integer id, Date dataInicial, Date dataFinalGarantia,
             Maquinarios maquina, Integer clienteId, Funcionarios funcionarioId,
@@ -130,6 +131,14 @@ public class Garantias implements Serializable {
 
     public void setSerialMaquina(String SerialMaquina) {
         this.SerialMaquina = SerialMaquina;
+    }
+
+    public String getDescricaoMaquina() {
+        return descricaoMaquina;
+    }
+
+    public void setDescricaoMaquina(String descricaoMaquina) {
+        this.descricaoMaquina = descricaoMaquina;
     }
 
 }

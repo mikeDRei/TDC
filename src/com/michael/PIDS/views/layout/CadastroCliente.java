@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class CadastroCliente extends javax.swing.JFrame {
-    
+
     Funcionarios funcionario = new Funcionarios();
     FuncionarioDAO daofuncionario = new FuncionarioDAO();
     LoginDAO daologin = new LoginDAO();
@@ -28,21 +28,21 @@ public class CadastroCliente extends javax.swing.JFrame {
     EnderecoDAO daoendereco = new EnderecoDAO();
     Enderecos enderecos = new Enderecos();
     private String CpfOuCnpj;
-    
+
     public CadastroCliente() {
         initComponents();
-        
+
         funcionario = usuariologado(login.usuariologado);
-        
+
         this.CarregarTabela();
         this.desabilitarCampos();
         this.desabilitarBotoes();
         //inicializadores
         btNovo.setEnabled(true);
         jtNumero.setText("0");
-        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -604,12 +604,12 @@ public class CadastroCliente extends javax.swing.JFrame {
         int opçoes = JOptionPane.showConfirmDialog(null, "Realmente deseja"
                 + " alterar os dados do Cliente: " + jtNome.getText(), "",
                 JOptionPane.YES_OPTION, JOptionPane.CANCEL_OPTION);
-        
+
         if (opçoes == JOptionPane.YES_OPTION) {
             this.HabilitarCampos();
             btSalvar.setEnabled(true);
             btLimpar.setEnabled(true);
-            
+
         } else if (opçoes == JOptionPane.CANCEL_OPTION) {
             this.desabilitarCampos();
         }
@@ -618,16 +618,16 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
         this.PesquisarClientePorNomeNaTabla();
-        
+
 
     }//GEN-LAST:event_btPesquisarActionPerformed
 
     private void jtTabelaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTabelaClienteMouseClicked
-        
+
         try {
             String nome = "" + jtTabelaCliente.getValueAt(
                     jtTabelaCliente.getSelectedRow(), 1);
-            
+
             jtNome.setText(nome);
             this.desabilitarCampos();
             btAlterar.setEnabled(true);
@@ -645,7 +645,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jScrollPane1MouseClicked
 
     private void jtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNomeFocusLost
-        
+
 
     }//GEN-LAST:event_jtNomeFocusLost
 
@@ -660,12 +660,12 @@ public class CadastroCliente extends javax.swing.JFrame {
         System.out.println(CpfOuCnpj);
         if (CpfOuCnpj.equals("Pessoa Fisica")) {
             lblCpfOuCnpj.setText("CPF(*)");
-            
+
         } else if (CpfOuCnpj.equals("Pessoa Juridica")) {
             lblCpfOuCnpj.setText("CNPJ(*)");
-            
+
         }
-        
+
 
     }//GEN-LAST:event_jcPessoaFisicaouJuridicaFocusLost
 
@@ -693,16 +693,16 @@ public class CadastroCliente extends javax.swing.JFrame {
             this.HabilitarCampos();
         }
     }//GEN-LAST:event_jtCpfouCnjFocusLost
-    
+
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastroCliente().setVisible(true);
             }
         });
     }
-    
+
     public void limparCampos() {
         idReferences.setText("");
         jtNome.setText("");
@@ -722,9 +722,9 @@ public class CadastroCliente extends javax.swing.JFrame {
         jtEmail.setText("");
         jtCidade.setText("");
         jtNumero.setText("0");
-        
+
     }
-    
+
     public void desabilitarCampos() {
         jtNome.setEnabled(false);
         jtBairro.setEnabled(false);
@@ -744,7 +744,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         jtCidade.setEnabled(false);
         jtdia.setEnabled(false);
     }
-    
+
     public void HabilitarCampos() {
         jtNome.setEnabled(true);
         jtBairro.setEnabled(true);
@@ -764,20 +764,20 @@ public class CadastroCliente extends javax.swing.JFrame {
         jtCidade.setEnabled(true);
         jtdia.setEnabled(true);
     }
-    
+
     public void desabilitarBotoes() {
         btSalvar.setEnabled(false);
         btAlterar.setEnabled(false);
         btLimpar.setEnabled(false);
-        
+
     }
-    
+
     public void CarregarTabela() {
         DefaultTableModel table = (DefaultTableModel) jtTabelaCliente.getModel();
         table.setNumRows(0);
         daocliente.consultarTodosClientes().forEach((cliente) -> {
             SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-            
+
             String dataCadastro = formatador.format(cliente.getDatacadastro());
             table.addRow(new Object[]{
                 cliente.getId(),
@@ -785,19 +785,19 @@ public class CadastroCliente extends javax.swing.JFrame {
                 cliente.getCpfoucnpj(),
                 cliente.getTelefone(),
                 dataCadastro
-            
+
             });
         });
-        
+
     }
-    
+
     public void PesquisarClientePorNomeNaTabla() {
         DefaultTableModel table = (DefaultTableModel) jtTabelaCliente.getModel();
         table.setNumRows(0);
         for (Clientes cliente : daocliente.
                 consultarClientePorNome(jtPesquisar.getText())) {
             SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-            
+
             String dataCadastro = formatador.format(cliente.getDatacadastro());
             table.addRow(new Object[]{
                 cliente.getId(),
@@ -805,24 +805,24 @@ public class CadastroCliente extends javax.swing.JFrame {
                 cliente.getCpfoucnpj(),
                 cliente.getTelefone(),
                 dataCadastro
-            
+
             });
-            
+
         }
     }
-    
+
     public void PreencherCamposParaEfetuarAlteraraçao() throws ParseException {
-        
+
         for (Clientes cliente : daocliente.
                 consultarClientePorNome(jtNome.getText())) {
-            
+
             jtNome.setText(cliente.getNome());
             idReferences.setText(cliente.getId().toString());
             jtEmail.setText(cliente.getEmail());
             jtCpfouCnj.setText(cliente.getCpfoucnpj());
             jtTelefone.setText(cliente.getTelefone());
             jtfoneFixo.setText(cliente.getTelFixo());
-            
+
             jtdia.setText(cliente.getDia().toString());
             jtmes.setText(cliente.getMes().toString());
             jtano.setText(cliente.getAno().toString());
@@ -836,18 +836,18 @@ public class CadastroCliente extends javax.swing.JFrame {
             jtComplemento.setText(enderecos.getComplemento());
             jtRua.setText(enderecos.getRua());
             jtCidade.setText(enderecos.getCidade());
-            
+
         }
-        
+
     }
-    
+
     public void SalvarCliente() throws Exception {
-        
+        EmailDAO send = new EmailDAO();
         String email = jtEmail.getText().replaceAll(" ", "");
         String nome = jtNome.getText();
         String telefone = jtTelefone.getText().replaceAll(" ", "");
         String telfixo = jtfoneFixo.getText().replaceAll(" ", "");
-        
+
         String complemento = jtComplemento.getText();
         String rua = jtRua.getText();
         String cep = jtCep.getText().replaceAll(" ", "");
@@ -858,48 +858,48 @@ public class CadastroCliente extends javax.swing.JFrame {
                 || jtano.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Preencha a data de nascimento");
         }
-        
+
         int dia = Integer.parseInt(jtdia.getText());
         int mes = Integer.parseInt(jtmes.getText());
         int ano = Integer.parseInt(jtano.getText());
-        
+
         Date data = new Date();
         System.out.println(data);
         String PessoaFisicaouJuridica
                 = jcPessoaFisicaouJuridica.getSelectedItem().toString();
         CpfOuCnpj = PessoaFisicaouJuridica;
-        
+
         if (CpfOuCnpj.equals("Pessoa Fisica")) {
-            
+
             if (daocliente.ValidarCpf(jtCpfouCnj.getText()) == true) {
                 clientes.setCpfoucnpj(jtCpfouCnj.getText().replaceAll(" ", ""));
             } else if (daocliente.ValidarCpf(jtCpfouCnj.getText()) == false) {
                 JOptionPane.showMessageDialog(null, "CPF INVALIDO",
                         "Erro", JOptionPane.ERROR_MESSAGE);
-                
+
             }
-            
+
         } else if (CpfOuCnpj.equals("Pessoa Juridica")) {
             if (daocliente.ValidarCnpj(jtCpfouCnj.getText()) == true) {
                 clientes.setCpfoucnpj(jtCpfouCnj.getText().replaceAll(" ", ""));
             } else if (daocliente.ValidarCpf(jtCpfouCnj.getText()) == false) {
                 JOptionPane.showMessageDialog(null, "CNPJ INVALIDO",
                         "Erro", JOptionPane.ERROR_MESSAGE);
-                
+
             }
-            
+
         }
-        
+
         clientes.setEmail(email);
         clientes.setFuncionarioId(funcionario);
         clientes.setAtivoinativo(1);
-        
+        clientes.setRemember_token(null);
         if (idReferences.getText().equals("")) {
             clientes.setId(null);
         } else {
             clientes.setId(Integer.parseInt(idReferences.getText()));
         }
-        
+
         clientes.setNome(nome);
         clientes.setTelFixo(telfixo);
         clientes.setTelefone(telefone);
@@ -909,64 +909,66 @@ public class CadastroCliente extends javax.swing.JFrame {
         clientes.setAno(ano);
         clientes.setDatacadastro(data);
         clientes.setSenha(daocliente.gerarSenha());
-        
+
         enderecos.setBairro(bairro);
         enderecos.setCep(jtCep.getText().replaceAll(" ", ""));
         enderecos.setComplemento(complemento);
         enderecos.setCidade(cidade);
-        
+
         if (idReferencesEnd.getText().equals("")) {
             enderecos.setId(null);
         } else {
             enderecos.setId(Integer.parseInt(idReferencesEnd.getText()));
         }
-        
+
         enderecos.setNumero(Integer.parseInt(jtNumero.getText()));
         enderecos.setRua(rua);
         enderecos.setDatacadastro(data);
-        
+
         if (validacao(jtNome.getText(), jtEmail.getText(), jtTelefone.getText(),
                 jtCpfouCnj.getText(), jtBairro.getText(), jtComplemento.getText(),
                 jtRua.getText(), jtCep.getText(), jtNumero.getText(),
                 jtmes.getText(), jtmes.getText(), jtano.getText(),
                 jtCidade.getText()) == false) {
             btSalvar.setEnabled(false);
-            
+
         } else {
             btSalvar.setEnabled(true);
-            if(clientes.getId() == null){
-            EmailDAO send = new EmailDAO();
-            send.sendEmail(clientes);
+            if (clientes.getId() == null) {
+
+                send.sendEmail(clientes);
+                JOptionPane.showMessageDialog(null, "Email de confirmação para o TDC online enviado para: " + clientes.getEmail(),
+                        "Sucesso", JOptionPane.WIDTH);
             }
             clientes = daocliente.saveCliente(clientes);
-            
+
             JOptionPane.showMessageDialog(null, "Salvo com sucesso",
                     "Sucesso", JOptionPane.WIDTH);
-            
+
         }
         enderecos.setCliente(clientes.getId());
-        
+
         enderecos = daoendereco.saveEndereco(enderecos);
-        
+
         if (clientes.getId() == null) {
             JOptionPane.showMessageDialog(null, "Erro ao Salvar Funcionario",
                     "Erro", JOptionPane.ERROR_MESSAGE);
-            
+
         } else {
-            
+
             this.HabilitarCampos();
             this.limparCampos();
             this.CarregarTabela();
-            
+
         }
         this.CarregarTabela();
-        
+
     }
-    
+
     public Funcionarios usuariologado(String usuariologado) {
         funcionario = daofuncionario.findLogin(usuariologado);
         String permissao = null;
-        
+
         lblFunc.setText(funcionario.getNome());
         if (funcionario.getPermissao() == 1) {
             permissao = "Administrador";
@@ -977,7 +979,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         lblsetfuncao.setText(permissao);
         return funcionario;
     }
-    
+
     public boolean validacao(String nome, String Email,
             String Telefone, String Cpf, String Bairro, String Complemento,
             String Rua, String Cep, String numero, String dia, String mes,
@@ -995,15 +997,15 @@ public class CadastroCliente extends javax.swing.JFrame {
                 || mes.equals("")
                 || ano.equals("")
                 || cidade.equals("")) {
-            
+
             JOptionPane.showMessageDialog(null, "Preencha todos os campos",
                     "Erro", JOptionPane.ERROR_MESSAGE);
             return false;
-            
+
         } else {
             return true;
         }
-        
+
     }
 
 
