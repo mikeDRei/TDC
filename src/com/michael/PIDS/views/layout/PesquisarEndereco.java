@@ -7,6 +7,7 @@ import com.michael.PIDS.DAO.LoginDAO;
 import com.michael.PIDS.model.Clientes;
 import com.michael.PIDS.model.Enderecos;
 import com.michael.PIDS.model.Funcionarios;
+import java.awt.Toolkit;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -25,7 +26,7 @@ public class PesquisarEndereco extends javax.swing.JFrame {
 
     public PesquisarEndereco() {
         initComponents();
-
+        setIcon();
         usuariologado(login.usuariologado);
         idcliente = Integer.parseInt(pesqcliente.IDCliente);
         this.setEnderecos(idcliente);
@@ -73,6 +74,7 @@ public class PesquisarEndereco extends javax.swing.JFrame {
         jtId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisa de endereços");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -532,6 +534,10 @@ public class PesquisarEndereco extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Não foi possivel salvar o Endereço");
         }
 
+    }
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

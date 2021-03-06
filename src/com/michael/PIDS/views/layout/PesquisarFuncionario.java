@@ -3,6 +3,7 @@ package com.michael.PIDS.views.layout;
 import com.michael.PIDS.DAO.FuncionarioDAO;
 import com.michael.PIDS.DAO.LoginDAO;
 import com.michael.PIDS.model.Funcionarios;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +18,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
 
     public PesquisarFuncionario() {
         initComponents();
+        setIcon();
         this.CarregarTabela();
         usuariologado(login.usuariologado);
         btRecuperarSenha.setEnabled(false);
@@ -45,6 +47,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
         btRecuperarSenha = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisa de funcionario");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -170,6 +173,8 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        btRecuperarSenha.setBackground(new java.awt.Color(255, 255, 255));
+        btRecuperarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/icons/senha.png"))); // NOI18N
         btRecuperarSenha.setText("Recuperar Senha");
         btRecuperarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +204,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
                         .addComponent(btDesativarFuncionario)
                         .addGap(75, 75, 75)
                         .addComponent(btRecuperarSenha)))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,7 +369,9 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
         lblsetfuncao.setText(permissao);
 
     }
-
+ private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrarFuncionario;

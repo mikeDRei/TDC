@@ -9,6 +9,7 @@ import com.michael.PIDS.model.Clientes;
 import com.michael.PIDS.model.Funcionarios;
 import com.michael.PIDS.model.Garantias;
 import com.michael.PIDS.model.Maquinarios;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -30,7 +31,7 @@ public class CadastroMaquina extends javax.swing.JFrame {
 
     public CadastroMaquina() {
         initComponents();
-
+        setIcon();
         this.usuariologado(login.usuariologado);
         this.CarregarTabela();
         this.desabilitarCampos();
@@ -85,6 +86,7 @@ public class CadastroMaquina extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de maquina");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -848,7 +850,9 @@ public class CadastroMaquina extends javax.swing.JFrame {
         jtSerie.setText(maquinas.getSerie());
 
     }
-
+ private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btLimpar;

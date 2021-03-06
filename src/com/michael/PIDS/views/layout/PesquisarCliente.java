@@ -7,6 +7,7 @@ import com.michael.PIDS.DAO.LoginDAO;
 import com.michael.PIDS.model.Clientes;
 import com.michael.PIDS.model.Enderecos;
 import com.michael.PIDS.model.Funcionarios;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,7 +26,7 @@ public class PesquisarCliente extends javax.swing.JFrame {
 
     public PesquisarCliente() {
         initComponents();
-
+        setIcon();
         funcionario = usuariologado(login.usuariologado);
 
         this.CarregarTabela();
@@ -69,6 +70,7 @@ public class PesquisarCliente extends javax.swing.JFrame {
         jBCadastrarFuncionario1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisa de clientes");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -254,6 +256,7 @@ public class PesquisarCliente extends javax.swing.JFrame {
         jLabel5.setText("(*) para consultar um endereço, selecione um cliente na tabela e clique em consultar endereços ");
 
         jBCadastrarFuncionario1.setBackground(new java.awt.Color(255, 255, 255));
+        jBCadastrarFuncionario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/icons/carregamento.png"))); // NOI18N
         jBCadastrarFuncionario1.setText("Carregar Tabela");
         jBCadastrarFuncionario1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,7 +323,7 @@ public class PesquisarCliente extends javax.swing.JFrame {
                         .addComponent(btPesquisarEndereço, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
                         .addComponent(jLabel5)))
-                .addContainerGap(499, Short.MAX_VALUE))
+                .addContainerGap(463, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,6 +639,9 @@ public class PesquisarCliente extends javax.swing.JFrame {
         return funcionario;
     }
 
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btPesquisarCPF;

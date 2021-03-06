@@ -3,6 +3,7 @@ package com.michael.PIDS.views.layout;
 import com.michael.PIDS.DAO.FuncionarioDAO;
 import com.michael.PIDS.DAO.LoginDAO;
 import com.michael.PIDS.model.Funcionarios;
+import java.awt.Toolkit;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +21,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     public CadastroFuncionario() {
         initComponents();
-
+        setIcon();
         usuariologado(login.usuariologado);
         this.CarregarTabela();
         this.desabilitarCampos();
@@ -67,6 +68,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jtTabelaFuncionario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de funcionarios");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -666,6 +668,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblsetfuncao.setText(permissao);
         return funcionario;
 
+    }
+     private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

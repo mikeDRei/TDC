@@ -3,6 +3,7 @@ package com.michael.PIDS.views.layout;
 import com.michael.PIDS.DAO.FuncionarioDAO;
 import com.michael.PIDS.model.Funcionarios;
 import java.awt.Desktop;
+import java.awt.Toolkit;
 import java.io.File;
 import javax.swing.JOptionPane;
 
@@ -14,6 +15,7 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
+        setIcon();
         funcionario = usuariologado(login.usuariologado);
 
     }
@@ -39,6 +41,7 @@ public class Home extends javax.swing.JFrame {
         jmenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/home.jpg"))); // NOI18N
@@ -259,12 +262,12 @@ public class Home extends javax.swing.JFrame {
     private void jMenuManuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuManuaisActionPerformed
         // TODO add your handling code here:
 
-      
+
     }//GEN-LAST:event_jMenuManuaisActionPerformed
 
     private void jMenuManuaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuManuaisMouseClicked
         // TODO add your handling code here:
-          File pdf = new File("manual.pdf");
+        File pdf = new File("manual.pdf");
         try {
             Desktop.getDesktop().open(pdf);
         } catch (Exception ex) {
@@ -288,6 +291,9 @@ public class Home extends javax.swing.JFrame {
         return funcionario;
     }
 
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

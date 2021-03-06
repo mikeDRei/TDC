@@ -5,6 +5,7 @@ import com.michael.PIDS.DAO.LoginDAO;
 import com.michael.PIDS.DAO.MaquinaDAO;
 import com.michael.PIDS.model.Funcionarios;
 import com.michael.PIDS.model.Maquinarios;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,7 @@ public class PesquisarMaquina extends javax.swing.JFrame {
 
     public PesquisarMaquina() {
         initComponents();
+        setIcon();
         this.CarregarTabela();
         usuariologado(login.usuariologado);
 
@@ -54,6 +56,7 @@ public class PesquisarMaquina extends javax.swing.JFrame {
         btPesquisarTipo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisar maquinas");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -435,6 +438,9 @@ public class PesquisarMaquina extends javax.swing.JFrame {
 
     }
 
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtCarregarTabela;
     private javax.swing.JButton btCadastrarMaquina;

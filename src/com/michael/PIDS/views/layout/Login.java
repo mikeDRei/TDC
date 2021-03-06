@@ -3,6 +3,7 @@ package com.michael.PIDS.views.layout;
 import com.michael.PIDS.DAO.FuncionarioDAO;
 import com.michael.PIDS.DAO.LoginDAO;
 import com.michael.PIDS.model.Funcionarios;
+import java.awt.Toolkit;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
@@ -18,7 +19,7 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
-
+        setIcon();
     }
 
     @SuppressWarnings("unchecked")
@@ -35,6 +36,7 @@ public class Login extends javax.swing.JFrame {
         fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLogin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -56,17 +58,19 @@ public class Login extends javax.swing.JFrame {
 
         jbLogar.setBackground(new java.awt.Color(255, 255, 255));
         jbLogar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jbLogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/icons/login.png"))); // NOI18N
         jbLogar.setText("LOGAR");
         jbLogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbLogarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbLogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 273, -1, 30));
+        getContentPane().add(jbLogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 130, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/icons/TDC2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 100, -1));
 
+        fundo.setBackground(new java.awt.Color(255, 255, 255));
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/fundo.jpg"))); // NOI18N
         getContentPane().add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -142,4 +146,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
+    }
 }

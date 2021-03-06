@@ -16,11 +16,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileOutputStream;
+import static javax.swing.text.StyleConstants.FontFamily;
 
 public class PesquisarGarantias extends javax.swing.JFrame {
 
@@ -37,6 +43,7 @@ public class PesquisarGarantias extends javax.swing.JFrame {
 
     public PesquisarGarantias() {
         initComponents();
+        setIcon();
         this.CarregarTabela();
         usuariologado(login.usuariologado);
 
@@ -77,6 +84,7 @@ public class PesquisarGarantias extends javax.swing.JFrame {
         jBCarregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisar garantias");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -251,6 +259,7 @@ public class PesquisarGarantias extends javax.swing.JFrame {
         lblData2.setText("Final");
 
         jBGerarCet.setBackground(new java.awt.Color(255, 255, 255));
+        jBGerarCet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/icons/cet.png"))); // NOI18N
         jBGerarCet.setText("Gerar CET");
         jBGerarCet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,6 +268,7 @@ public class PesquisarGarantias extends javax.swing.JFrame {
         });
 
         jBCarregar.setBackground(new java.awt.Color(255, 255, 255));
+        jBCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/michael/PIDS/views/images/icons/carregamento.png"))); // NOI18N
         jBCarregar.setText("Carregar Tabela");
         jBCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,17 +319,17 @@ public class PesquisarGarantias extends javax.swing.JFrame {
                         .addComponent(lblData2)
                         .addGap(99, 99, 99))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPesquisar)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(159, 159, 159)
-                                .addComponent(jBGerarCet)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblPesquisar)
+                        .addContainerGap(849, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addComponent(jBGerarCet)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(jBCarregar)
-                    .addContainerGap(774, Short.MAX_VALUE)))
+                    .addContainerGap(738, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,14 +363,14 @@ public class PesquisarGarantias extends javax.swing.JFrame {
                     .addComponent(PesquisarPorData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(114, 114, 114)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jBGerarCet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBGerarCet)
                 .addGap(70, 70, 70))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(617, Short.MAX_VALUE)
-                    .addComponent(jBCarregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(68, 68, 68)))
+                    .addContainerGap(604, Short.MAX_VALUE)
+                    .addComponent(jBCarregar)
+                    .addGap(73, 73, 73)))
         );
 
         pack();
@@ -434,7 +444,7 @@ public class PesquisarGarantias extends javax.swing.JFrame {
     }//GEN-LAST:event_jBGerarCetActionPerformed
 
     private void jBCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCarregarActionPerformed
-       
+
         this.CarregarTabela();
     }//GEN-LAST:event_jBCarregarActionPerformed
 
@@ -604,15 +614,19 @@ public class PesquisarGarantias extends javax.swing.JFrame {
 
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(arquivoPDF));
+            Image img = Image.getInstance("justi.png");
+            img.setAlignment(Element.ALIGN_LEFT);
             doc.open();
-            Paragraph p = new Paragraph("Comprovante de garantia");
+            doc.add(img);
+
+            Paragraph p = new Paragraph("Comprovante de garantia ", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12));
             p.setAlignment(1);
             doc.add(p);
             p = new Paragraph("");
             doc.add(p);
             p = new Paragraph("");
             doc.add(p);
-            p = new Paragraph("Comprovante de garantia do cliente: "
+            p = new Paragraph("\r\n Comprovante de garantia do cliente: "
                     + cliente.getNome() + " Referente a maquina: " + garantias.getMaquina().getDescricao()
                     + " Numero de serie: " + garantias.getMaquina().getSerie() + " nota fiscal: " + garantias.getNotaFiscal()
                     + " Registrada na data " + dataInicial
@@ -637,6 +651,9 @@ public class PesquisarGarantias extends javax.swing.JFrame {
 
         }
 
+    }
+     private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,6 +9,7 @@ import com.michael.PIDS.ENUM.TipoCliente;
 import com.michael.PIDS.model.Clientes;
 import com.michael.PIDS.model.Enderecos;
 import com.michael.PIDS.model.Funcionarios;
+import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,7 +32,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     public CadastroCliente() {
         initComponents();
-
+        setIcon();
         funcionario = usuariologado(login.usuariologado);
 
         this.CarregarTabela();
@@ -105,6 +106,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         jtTabelaCliente = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Cliente");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jpainelcabeçalho.setBackground(new java.awt.Color(255, 255, 255));
@@ -1008,7 +1010,10 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     }
 
-
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("tdcicon.PNG")));
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btLimpar;
